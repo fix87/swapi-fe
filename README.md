@@ -1,6 +1,6 @@
 # SWAPIFE
 
-### [demo](https://fix87.github.io/swapi-fe)
+### [demo](https://fix87.github.io/swapi-fe) (Not yet deployed) :construction:
 
 Mocked data is retrieved from [SWAPI - The Star Wars API](https://swapi.dev/)
 
