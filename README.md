@@ -4,7 +4,7 @@
 
 Mocked data is retrieved from [SWAPI - The Star Wars API](https://swapi.dev/)
 
-UI is based on [Material Design](https://material.angular.io/) + [Bootstrap](https://getbootstrap.com/) (imported via SASS only required files (grid, helpers), [how to do](https://getbootstrap.com/docs/5.3/customize/sass/))
+UI is based on [Bootstrap](https://getbootstrap.com/) and [ngBootstrap](https://ng-bootstrap.github.io/)
 
 ### Poject goal
 
