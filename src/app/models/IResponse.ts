@@ -1,14 +1,6 @@
-import { IFilm, IPeople, IPlanet, ISpecie, IStarship, IVehicle } from '.';
-
-export interface IResponse {
+export interface IResponse<T> {
   count: number;
   next: string;
   previous: string;
-  results:
-    | IFilm[]
-    | IPeople[]
-    | IPlanet[]
-    | ISpecie[]
-    | IStarship[]
-    | IVehicle[];
+  results: T[];
 }

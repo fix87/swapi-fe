@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { DataService } from '../services/data.service';
 
 @Component({
   selector: 'app-navbar',
@@ -7,4 +8,9 @@ import { Component } from '@angular/core';
 })
 export class NavbarComponent {
   public isMenuCollapsed = true;
+  public navbarItems: string[] = [];
+
+  public constructor(private dataService: DataService) {
+    this.navbarItems = [...Object.keys(this.dataService.rootEntrypoints)];
+  }
 }

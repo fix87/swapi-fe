@@ -5,9 +5,10 @@ import { RouterModule } from '@angular/router';
 import { BootstrapModule } from '../shared/bootstrap';
 
 import { NavbarComponent } from './navbar.component';
+import { NavbarItemComponent } from './components/navbar-item/navbar-item.component';
 
 @NgModule({
-  declarations: [NavbarComponent],
+  declarations: [NavbarComponent, NavbarItemComponent],
   imports: [CommonModule, BootstrapModule, RouterModule],
   exports: [NavbarComponent],
 })

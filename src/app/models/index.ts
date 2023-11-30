@@ -5,3 +5,4 @@ export * from './IVehicle';
 export * from './ISpecie';
 export * from './IPlanet';
 export * from './IResponse';
+export * from './IRootEntrypoints';

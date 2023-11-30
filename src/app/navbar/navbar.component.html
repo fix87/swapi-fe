@@ -14,72 +14,10 @@
       [ngbCollapse]="isMenuCollapsed"
     >
       <ul class="navbar-nav me-auto mb-2 mb-md-0">
-        <li class="nav-item">
-          <a
-            class="nav-link"
-            href="/people"
-            routerLinkActive="text-decoration-underline"
-            [routerLinkActiveOptions]="{
-              exact: true
-            }"
-            >People</a
-          >
-        </li>
-        <li class="nav-item">
-          <a
-            class="nav-link"
-            href="/films"
-            routerLinkActive="text-decoration-underline"
-            [routerLinkActiveOptions]="{
-              exact: true
-            }"
-            >Films</a
-          >
-        </li>
-        <li class="nav-item">
-          <a
-            class="nav-link"
-            href="/starships"
-            routerLinkActive="text-decoration-underline"
-            [routerLinkActiveOptions]="{
-              exact: true
-            }"
-            >Starships</a
-          >
-        </li>
-        <li class="nav-item">
-          <a
-            class="nav-link"
-            href="/vehicles"
-            routerLinkActive="text-decoration-underline"
-            [routerLinkActiveOptions]="{
-              exact: true
-            }"
-            >Vehicles</a
-          >
-        </li>
-        <li class="nav-item">
-          <a
-            class="nav-link"
-            href="/species"
-            routerLinkActive="text-decoration-underline"
-            [routerLinkActiveOptions]="{
-              exact: true
-            }"
-            >Species</a
-          >
-        </li>
-        <li class="nav-item">
-          <a
-            class="nav-link"
-            href="/planets"
-            routerLinkActive="text-decoration-underline"
-            [routerLinkActiveOptions]="{
-              exact: true
-            }"
-            >Planets</a
-          >
-        </li>
+        <app-navbar-item
+          *ngFor="let navbarItem of navbarItems"
+          [navbarItem]="navbarItem"
+        />
       </ul>
     </div>
   </div>
