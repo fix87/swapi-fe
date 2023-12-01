@@ -1,6 +1,35 @@
 <app-main-loader *ngIf="showLoader; else filmsTemplate"></app-main-loader>
 <ng-template #filmsTemplate>
   <div class="row">
-    <div class="col-12">Data loaded, check console log</div>
+    <div class="col-xl-4 offset-xl-4 col-lg-6 offset-lg-3 col-md-8 offset-md-2">
+      <div class="list-group text-center">
+        <button
+          *ngFor="let film of films"
+          (click)="goToFilmDetail(film.url)"
+          type="button"
+          class="list-group-item list-group-item-action"
+        >
+          {{ film.title }}
+        </button>
+        <div class="d-flex justify-content-between mt-2">
+          <button
+            type="button"
+            class="btn btn-outline-light border-light-subtle"
+            [disabled]="!isPreviousPagePresent"
+            (click)="previousPage()"
+          >
+            Prev
+          </button>
+          <button
+            type="button"
+            class="btn btn-outline-light border-light-subtle"
+            [disabled]="!isNextPagePresent"
+            (click)="nextPage()"
+          >
+            Next
+          </button>
+        </div>
+      </div>
+    </div>
   </div>
 </ng-template>
