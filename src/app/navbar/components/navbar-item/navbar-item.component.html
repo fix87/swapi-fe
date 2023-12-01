@@ -1,11 +1,11 @@
 <li class="nav-item">
   <a
     class="nav-link"
-    [href]="getHref(navbarItem)"
+    [routerLink]="['/', navbarItem]"
     routerLinkActive="text-decoration-underline"
     [routerLinkActiveOptions]="{
       exact: true
     }"
-    >{{ getFirstLetterCapital(navbarItem) }}</a
+    >{{ navbarItem | titlecase }}</a
   >
 </li>

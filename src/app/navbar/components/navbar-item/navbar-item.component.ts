@@ -7,12 +7,4 @@ import { Component, Input } from '@angular/core';
 })
 export class NavbarItemComponent {
   @Input({ required: true }) public navbarItem: string = '';
-
-  public getHref(navbarItem: string): string {
-    return `/${navbarItem}`;
-  }
-
-  public getFirstLetterCapital(navbarItem: string): string {
-    return navbarItem.charAt(0).toUpperCase() + navbarItem.slice(1);
-  }
 }

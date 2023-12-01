@@ -1,1 +1,9 @@
-<app-navbar *ngIf="dataIsReady$ | async"></app-navbar>
+<ng-container *ngIf="rootEntrypointsReady$ | async; else splashScreen">
+  <app-navbar></app-navbar>
+  <div class="container">
+    <router-outlet></router-outlet>
+  </div>
+</ng-container>
+<ng-template #splashScreen>
+  <app-main-loader />
+</ng-template>

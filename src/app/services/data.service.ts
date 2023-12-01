@@ -18,7 +18,7 @@ import {
   providedIn: 'root',
 })
 export class DataService {
-  public dataIsReady$: Subject<boolean> = new Subject();
+  public rootEntrypointsReady$: Subject<boolean> = new Subject();
   private baseUrl = 'https://swapi.dev/api/';
   private _rootEntrypoints!: IRootEntrypoints;
   public get rootEntrypoints(): IRootEntrypoints {
@@ -32,17 +32,17 @@ export class DataService {
   private getRootEntrypoints(): void {
     this.http
       .get<IRootEntrypoints>(this.baseUrl)
-      .pipe(finalize(() => this.dataIsReady$.next(true)))
+      .pipe(finalize(() => this.rootEntrypointsReady$.next(true)))
       .subscribe((response) => (this._rootEntrypoints = response));
   }
 
-  public getEntities<
+  public getItems<
     T extends IFilm | IPeople | IPlanet | ISpecie | IStarship | IVehicle
   >(url: string): Observable<IResponse<T>> {
     return this.http.get<IResponse<T>>(url);
   }
 
-  public getEntity<
+  public getItem<
     T extends IFilm | IPeople | IPlanet | ISpecie | IStarship | IVehicle
   >(url: string): Observable<T> {
     return this.http.get<T>(url);

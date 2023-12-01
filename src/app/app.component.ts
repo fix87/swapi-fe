@@ -10,9 +10,9 @@ import { DataService } from './services/data.service';
   styleUrl: './app.component.scss',
 })
 export class AppComponent {
-  public dataIsReady$: Subject<boolean>;
+  public rootEntrypointsReady$: Subject<boolean>;
 
   public constructor(private dataService: DataService) {
-    this.dataIsReady$ = this.dataService.dataIsReady$;
+    this.rootEntrypointsReady$ = this.dataService.rootEntrypointsReady$;
   }
 }

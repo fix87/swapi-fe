@@ -5,9 +5,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { AppRoutingModule } from './app-routing.module';
+import { NavbarModule } from './navbar/navbar.module';
+import { MainLoaderModule } from './shared/main-loader/main-loader.module';
 
 import { AppComponent } from './app.component';
-import { NavbarModule } from './navbar/navbar.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -17,6 +18,7 @@ import { NavbarModule } from './navbar/navbar.module';
     NgbModule,
     NavbarModule,
     HttpClientModule,
+    MainLoaderModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

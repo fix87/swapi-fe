@@ -1,0 +1,6 @@
+<app-main-loader *ngIf="showLoader; else vehiclesTemplate"></app-main-loader>
+<ng-template #vehiclesTemplate>
+  <div class="row">
+    <div class="col-12">Data loaded, check console log</div>
+  </div>
+</ng-template>

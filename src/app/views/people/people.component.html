@@ -1,0 +1,6 @@
+<app-main-loader *ngIf="showLoader; else peopleTemplate"></app-main-loader>
+<ng-template #peopleTemplate>
+  <div class="row">
+    <div class="col-12">Data loaded, check console log</div>
+  </div>
+</ng-template>
