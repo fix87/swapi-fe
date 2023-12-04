@@ -5,6 +5,8 @@ import { CommonModule } from '@angular/common';
 // Modules
 import { PeopleRoutingModule } from './people-routing.module';
 import { MainLoaderModule } from '../../shared/main-loader/main-loader.module';
+import { BootstrapModule } from '../../shared/bootstrap';
+import { PipesModule } from '../../shared/pipes/pipes.module';
 
 // Components
 import { PeopleComponent } from './people.component';
@@ -13,6 +15,12 @@ import { PeopleDetailComponent } from './components/people-detail/people-detail.
 
 @NgModule({
   declarations: [PeopleComponent, PeopleListComponent, PeopleDetailComponent],
-  imports: [CommonModule, PeopleRoutingModule, MainLoaderModule],
+  imports: [
+    CommonModule,
+    PeopleRoutingModule,
+    MainLoaderModule,
+    BootstrapModule,
+    PipesModule,
+  ],
 })
 export class PeopleModule {}
