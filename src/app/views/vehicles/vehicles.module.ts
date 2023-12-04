@@ -4,9 +4,11 @@ import { CommonModule } from '@angular/common';
 import { VehiclesRoutingModule } from './vehicles-routing.module';
 import { VehiclesComponent } from './vehicles.component';
 import { MainLoaderModule } from '../../shared/main-loader/main-loader.module';
+import { VehiclesListComponent } from './components/vehicles-list/vehicles-list.component';
+import { VehicleDetailComponent } from './components/vehicle-detail/vehicle-detail.component';
 
 @NgModule({
-  declarations: [VehiclesComponent],
+  declarations: [VehiclesComponent, VehiclesListComponent, VehicleDetailComponent],
   imports: [CommonModule, VehiclesRoutingModule, MainLoaderModule],
 })
 export class VehiclesModule {}
