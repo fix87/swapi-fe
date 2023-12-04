@@ -1,0 +1,35 @@
+<app-main-loader *ngIf="showLoader; else vehiclesTemplate"></app-main-loader>
+<ng-template #vehiclesTemplate>
+  <div class="row">
+    <div class="col-xl-4 offset-xl-4 col-lg-6 offset-lg-3 col-md-8 offset-md-2">
+      <div class="list-group text-center">
+        <button
+          *ngFor="let vehicle of vehicles"
+          (click)="goToVehicleDetail(vehicle.url)"
+          type="button"
+          class="list-group-item list-group-item-action"
+        >
+          {{ vehicle.name }}
+        </button>
+        <div class="d-flex justify-content-between mt-2">
+          <button
+            type="button"
+            class="btn btn-outline-light border-light-subtle"
+            [disabled]="!isPreviousPagePresent"
+            (click)="previousPage()"
+          >
+            Prev
+          </button>
+          <button
+            type="button"
+            class="btn btn-outline-light border-light-subtle"
+            [disabled]="!isNextPagePresent"
+            (click)="nextPage()"
+          >
+            Next
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-template>
