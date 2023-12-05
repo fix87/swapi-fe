@@ -1,1 +1,48 @@
-<p>specie-detail works!</p>
+<app-main-loader *ngIf="!specie; else specieTemplate"></app-main-loader>
+<ng-template #specieTemplate>
+  <div class="row">
+    <div class="col-12">
+      <a [routerLink]="['../']" class="link-secondary"
+        ><i class="bi bi-arrow-left"></i> Species</a
+      >
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <h1 class="text-center">{{ specie.name }}</h1>
+      <ul ngbNav #nav="ngbNav" class="nav-tabs">
+        <li [ngbNavItem]="1">
+          <button ngbNavLink class="detail-nav-link">Details</button>
+          <ng-template ngbNavContent>
+            <div class="row">
+              <dt class="col-sm-4">Classification</dt>
+              <dd class="col-sm-8">{{ specie.classification }}</dd>
+              <dt class="col-sm-4">Designation</dt>
+              <dd class="col-sm-8">
+                {{ specie.designation }}
+              </dd>
+              <dt class="col-sm-4">Average height</dt>
+              <dd class="col-sm-8">{{ specie.average_height }} cm</dd>
+              <dt class="col-sm-4">Average lifespan</dt>
+              <dd class="col-sm-8">{{ specie.average_lifespan }} years</dd>
+              <dt class="col-sm-4">Eye colors</dt>
+              <dd class="col-sm-8">{{ specie.eye_colors }}</dd>
+              <dt class="col-sm-4">Hairs colors</dt>
+              <dd class="col-sm-8">{{ specie.hair_colors }}</dd>
+              <dt class="col-sm-4">Skin colors</dt>
+              <dd class="col-sm-8">
+                {{ specie.skin_colors }}
+              </dd>
+              <dt class="col-sm-4">Language</dt>
+              <dd class="col-sm-8">
+                {{ specie.language }}
+              </dd>
+            </div>
+          </ng-template>
+        </li>
+      </ul>
+
+      <div [ngbNavOutlet]="nav" class="mt-4"></div>
+    </div>
+  </div>
+</ng-template>

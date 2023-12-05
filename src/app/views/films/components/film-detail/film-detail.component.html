@@ -1,1 +1,42 @@
-<p>film-detail works!</p>
+<app-main-loader *ngIf="!film; else filmTemplate"></app-main-loader>
+<ng-template #filmTemplate>
+  <div class="row">
+    <div class="col-12">
+      <a [routerLink]="['../']" class="link-secondary"
+        ><i class="bi bi-arrow-left"></i> Films</a
+      >
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <h1 class="text-center">{{ film.title }}</h1>
+      <ul ngbNav #nav="ngbNav" class="nav-tabs">
+        <li [ngbNavItem]="1">
+          <button ngbNavLink class="detail-nav-link">Details</button>
+          <ng-template ngbNavContent>
+            <div class="row">
+              <dt class="col-sm-4">Producer</dt>
+              <dd class="col-sm-8">
+                {{ film.producer }}
+              </dd>
+              <dt class="col-sm-4">Director</dt>
+              <dd class="col-sm-8">
+                {{ film.director }}
+              </dd>
+              <dt class="col-sm-4">Release Date</dt>
+              <dd class="col-sm-8">
+                {{ film.release_date }}
+              </dd>
+              <dt class="col-sm-4">Opening crawl</dt>
+              <dd class="col-sm-8">
+                {{ film.opening_crawl }}
+              </dd>
+            </div>
+          </ng-template>
+        </li>
+      </ul>
+
+      <div [ngbNavOutlet]="nav" class="mt-4"></div>
+    </div>
+  </div>
+</ng-template>

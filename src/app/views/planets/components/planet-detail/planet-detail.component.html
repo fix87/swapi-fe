@@ -1,1 +1,52 @@
-<p>planet-detail works!</p>
+<app-main-loader *ngIf="!planet; else planetTemplate"></app-main-loader>
+<ng-template #planetTemplate>
+  <div class="row">
+    <div class="col-12">
+      <a [routerLink]="['../']" class="link-secondary"
+        ><i class="bi bi-arrow-left"></i> Planets</a
+      >
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <h1 class="text-center">{{ planet.name }}</h1>
+      <ul ngbNav #nav="ngbNav" class="nav-tabs">
+        <li [ngbNavItem]="1">
+          <button ngbNavLink class="detail-nav-link">Details</button>
+          <ng-template ngbNavContent>
+            <div class="row">
+              <dt class="col-sm-4">Diameter</dt>
+              <dd class="col-sm-8">{{ planet.diameter | number }} km</dd>
+              <dt class="col-sm-4">Population</dt>
+              <dd class="col-sm-8">
+                {{ planet.population | number }}
+              </dd>
+              <dt class="col-sm-4">Climate</dt>
+              <dd class="col-sm-8">
+                {{ planet.climate }}
+              </dd>
+              <dt class="col-sm-4">Terrain</dt>
+              <dd class="col-sm-8">
+                {{ planet.terrain }}
+              </dd>
+              <dt class="col-sm-4">Surface Water</dt>
+              <dd class="col-sm-8">{{ planet.surface_water }}%</dd>
+              <dt class="col-sm-4">Graity</dt>
+              <dd class="col-sm-8">{{ planet.gravity }} G</dd>
+              <dt class="col-sm-4">Rotation period</dt>
+              <dd class="col-sm-8">
+                {{ planet.rotation_period | number }} hours
+              </dd>
+              <dt class="col-sm-4">Orbital period</dt>
+              <dd class="col-sm-8">
+                {{ planet.orbital_period | number }} days
+              </dd>
+            </div>
+          </ng-template>
+        </li>
+      </ul>
+
+      <div [ngbNavOutlet]="nav" class="mt-4"></div>
+    </div>
+  </div>
+</ng-template>

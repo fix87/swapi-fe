@@ -2,53 +2,49 @@
 <ng-template #personTemplate>
   <div class="row">
     <div class="col-12">
+      <a [routerLink]="['../']" class="link-secondary"
+        ><i class="bi bi-arrow-left"></i> People</a
+      >
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
       <h1 class="text-center">{{ person.name }}</h1>
-      <ul ngbNav #nav="ngbNav" class="nav-underline">
+      <ul ngbNav #nav="ngbNav" class="nav-tabs">
         <li [ngbNavItem]="1">
-          <button ngbNavLink>Details</button>
+          <button ngbNavLink class="detail-nav-link">Details</button>
           <ng-template ngbNavContent>
-            <p>Date of Bitrh: {{ person.birth_year | YavinBattle }}</p>
-          </ng-template>
-        </li>
-        <li [ngbNavItem]="2">
-          <button ngbNavLink>Films</button>
-          <ng-template ngbNavContent>
-            <p>
-              Exercitation +1 labore velit, blog sartorial PBR leggings next
-              level wes anderson artisan four loko farm-to-table craft beer
-              twee. Qui photo booth letterpress, commodo enim craft beer mlkshk
-              aliquip jean shorts ullamco ad vinyl cillum PBR. Homo nostrud
-              organic, assumenda labore aesthetic magna delectus mollit. Keytar
-              helvetica VHS salvia yr, vero magna velit sapiente labore
-              stumptown. Vegan fanny pack odio cillum wes anderson 8-bit,
-              sustainable jean shorts beard ut DIY ethical culpa terry
-              richardson biodiesel. Art party scenester stumptown, tumblr
-              butcher vero sint qui sapiente accusamus tattooed echo park.
-            </p>
-          </ng-template>
-        </li>
-        <li [ngbNavItem]="3">
-          <button ngbNavLink>Starships</button>
-          <ng-template ngbNavContent>
-            <p>
-              Sed commodo, leo at suscipit dictum, quam est porttitor sapien,
-              eget sodales nibh elit id diam. Nulla facilisi. Donec egestas
-              ligula vitae odio interdum aliquet. Duis lectus turpis, luctus
-              eget tincidunt eu, congue et odio. Duis pharetra et nisl at
-              faucibus. Quisque luctus pulvinar arcu, et molestie lectus
-              ultrices et. Sed diam urna, egestas ut ipsum vel, volutpat
-              volutpat neque. Praesent fringilla tortor arcu. Vivamus faucibus
-              nisl enim, nec tristique ipsum euismod facilisis. Morbi ut
-              bibendum est, eu tincidunt odio. Orci varius natoque penatibus et
-              magnis dis parturient montes, nascetur ridiculus mus. Mauris
-              aliquet odio ac lorem aliquet ultricies in eget neque. Phasellus
-              nec tortor vel tellus pulvinar feugiat.
-            </p>
+            <div class="row">
+              <dt class="col-sm-4">Date of birth</dt>
+              <dd class="col-sm-8">
+                {{ person.birth_year | YavinBattle }}
+              </dd>
+              <dt class="col-sm-4">Gender</dt>
+              <dd class="col-sm-8">
+                {{ person.gender }}
+              </dd>
+              <dt class="col-sm-4">Height</dt>
+              <dd class="col-sm-8">{{ person.height }} cm</dd>
+              <dt class="col-sm-4">Mass</dt>
+              <dd class="col-sm-8">{{ person.mass }} kg</dd>
+              <dt class="col-sm-4">Hair color</dt>
+              <dd class="col-sm-8">
+                {{ person.hair_color }}
+              </dd>
+              <dt class="col-sm-4">Eye volor</dt>
+              <dd class="col-sm-8">
+                {{ person.eye_color }}
+              </dd>
+              <dt class="col-sm-4">Skin color</dt>
+              <dd class="col-sm-8">
+                {{ person.skin_color }}
+              </dd>
+            </div>
           </ng-template>
         </li>
       </ul>
 
-      <div [ngbNavOutlet]="nav" class="mt-2"></div>
+      <div [ngbNavOutlet]="nav" class="mt-4"></div>
     </div>
   </div>
 </ng-template>

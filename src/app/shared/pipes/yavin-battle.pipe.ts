@@ -5,11 +5,8 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class YavinBattlePipe implements PipeTransform {
   public transform(value: string): string {
-    const includesBBY = value.includes('BBY');
-    const stringToReplace = includesBBY ? 'BBY' : 'ABY';
-    const replaceWith = includesBBY
-      ? ' Before Battle of Yavin'
-      : ' After Battle of Yavin';
-    return value.replace(stringToReplace, replaceWith);
+    return value
+      .replace('BBY', ' Before Battle of Yavin')
+      .replace('ABY', ' After Battle of Yavin');
   }
 }

@@ -1,1 +1,62 @@
-<p>starship-detail works!</p>
+<app-main-loader *ngIf="!starship; else starshipTemplate"></app-main-loader>
+<ng-template #starshipTemplate>
+  <div class="row">
+    <div class="col-12">
+      <a [routerLink]="['../']" class="link-secondary"
+        ><i class="bi bi-arrow-left"></i> Starships</a
+      >
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <h1 class="text-center">{{ starship.name }}</h1>
+      <ul ngbNav #nav="ngbNav" class="nav-tabs">
+        <li [ngbNavItem]="1">
+          <button ngbNavLink class="detail-nav-link">Details</button>
+          <ng-template ngbNavContent>
+            <div class="row">
+              <dt class="col-sm-4">Model</dt>
+              <dd class="col-sm-8">{{ starship.model }}</dd>
+              <dt class="col-sm-4">Starship class</dt>
+              <dd class="col-sm-8">
+                {{ starship.starship_class }}
+              </dd>
+              <dt class="col-sm-4">Manufacturer</dt>
+              <dd class="col-sm-8">{{ starship.manufacturer }}</dd>
+              <dt class="col-sm-4">Cost in credits</dt>
+              <dd class="col-sm-8">
+                {{ starship.cost_in_credits | number }} Galactic Credits
+              </dd>
+              <dt class="col-sm-4">Lengh</dt>
+              <dd class="col-sm-8">{{ starship.length | number }} meters</dd>
+              <dt class="col-sm-4">Crew</dt>
+              <dd class="col-sm-8">{{ starship.crew | number }}</dd>
+              <dt class="col-sm-4">Passengers</dt>
+              <dd class="col-sm-8">
+                {{ starship.passengers | number }}
+              </dd>
+              <dt class="col-sm-4">Max atmosphere speed</dt>
+              <dd class="col-sm-8">
+                {{ starship.max_atmosphering_speed | number }}
+              </dd>
+              <dt class="col-sm-4">MGLT</dt>
+              <dd class="col-sm-8">
+                {{ starship.MGLT | number }}
+              </dd>
+              <dt class="col-sm-4">Cargo capacity</dt>
+              <dd class="col-sm-8">
+                {{ starship.cargo_capacity | number }} kg
+              </dd>
+              <dt class="col-sm-4">Consumables</dt>
+              <dd class="col-sm-8">
+                {{ starship.consumables }}
+              </dd>
+            </div>
+          </ng-template>
+        </li>
+      </ul>
+
+      <div [ngbNavOutlet]="nav" class="mt-4"></div>
+    </div>
+  </div>
+</ng-template>

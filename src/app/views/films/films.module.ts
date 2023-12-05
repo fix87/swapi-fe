@@ -5,6 +5,7 @@ import { CommonModule } from '@angular/common';
 // Modules
 import { FilmsRoutingModule } from './films-routing.module';
 import { MainLoaderModule } from '../../shared/main-loader/main-loader.module';
+import { BootstrapModule } from '../../shared/bootstrap';
 
 // Components
 import { FilmsComponent } from './films.component';
@@ -13,6 +14,11 @@ import { FilmDetailComponent } from './components/film-detail/film-detail.compon
 
 @NgModule({
   declarations: [FilmsComponent, FilmsListComponent, FilmDetailComponent],
-  imports: [CommonModule, FilmsRoutingModule, MainLoaderModule],
+  imports: [
+    CommonModule,
+    FilmsRoutingModule,
+    MainLoaderModule,
+    BootstrapModule,
+  ],
 })
 export class FilmsModule {}
