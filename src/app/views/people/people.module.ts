@@ -12,6 +12,7 @@ import { PipesModule } from '../../shared/pipes/pipes.module';
 import { PeopleComponent } from './people.component';
 import { PeopleListComponent } from './components/people-list/people-list.component';
 import { PeopleDetailComponent } from './components/people-detail/people-detail.component';
+import { EntitiesPreviewModule } from '../../shared/entities-preview/entities-preview.module';
 
 @NgModule({
   declarations: [PeopleComponent, PeopleListComponent, PeopleDetailComponent],
@@ -21,6 +22,7 @@ import { PeopleDetailComponent } from './components/people-detail/people-detail.
     MainLoaderModule,
     BootstrapModule,
     PipesModule,
+    EntitiesPreviewModule,
   ],
 })
 export class PeopleModule {}

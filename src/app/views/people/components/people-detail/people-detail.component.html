@@ -1,4 +1,4 @@
-<app-main-loader *ngIf="!person; else personTemplate"></app-main-loader>
+<app-main-loader *ngIf="!person; else personTemplate" />
 <ng-template #personTemplate>
   <div class="row">
     <div class="col-12">
@@ -10,7 +10,7 @@
   <div class="row">
     <div class="col-12">
       <h1 class="text-center">{{ person.name }}</h1>
-      <ul ngbNav #nav="ngbNav" class="nav-tabs">
+      <ul ngbNav #nav="ngbNav" class="nav-tabs" [destroyOnHide]="false">
         <li [ngbNavItem]="1">
           <button ngbNavLink class="detail-nav-link">Details</button>
           <ng-template ngbNavContent>
@@ -39,11 +39,45 @@
               <dd class="col-sm-8">
                 {{ person.skin_color }}
               </dd>
+              <dt class="col-sm-4">Specie</dt>
+              <dd class="col-sm-8">
+                <ng-container *ngIf="specie; else placeholderTemplate">
+                  <!-- TODO: add button for navigation -->
+                  {{ specie.name }}
+                </ng-container>
+              </dd>
+              <dt class="col-sm-4">Homeworld</dt>
+              <dd class="col-sm-8">
+                <ng-container *ngIf="planet; else placeholderTemplate">
+                  <!-- TODO: add button  for navigation-->
+                  {{ planet.name }}
+                </ng-container>
+              </dd>
+              <ng-template #placeholderTemplate>
+                <div class="placeholder-glow">
+                  <span class="placeholder w-25"></span>
+                </div>
+              </ng-template>
+            </div>
+          </ng-template>
+        </li>
+        <li [ngbNavItem]="2">
+          <button ngbNavLink class="detail-nav-link">Films</button>
+          <ng-template ngbNavContent>
+            <div class="row">
+              <div class="col-4 m-auto text-center">
+                <p>List of films that this person has been in</p>
+                <div class="list-group">
+                  <app-film-preview
+                    *ngFor="let film of person.films"
+                    [filmUrl]="film"
+                  />
+                </div>
+              </div>
             </div>
           </ng-template>
         </li>
       </ul>
-
       <div [ngbNavOutlet]="nav" class="mt-4"></div>
     </div>
   </div>

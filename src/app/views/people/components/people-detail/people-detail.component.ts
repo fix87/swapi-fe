@@ -4,7 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 
 // Services
 import { DataService } from '../../../../services/data.service';
-import { IPeople } from '../../../../models';
+import { IPeople, IPlanet, ISpecie } from '../../../../models';
 
 @Component({
   selector: 'app-people-detail',
@@ -14,6 +14,8 @@ import { IPeople } from '../../../../models';
 export class PeopleDetailComponent implements OnInit {
   private peopleId!: string;
   public person!: IPeople;
+  public planet!: IPlanet;
+  public specie!: ISpecie;
 
   public constructor(
     private activatedRoute: ActivatedRoute,
@@ -31,6 +33,22 @@ export class PeopleDetailComponent implements OnInit {
       .getItem<IPeople>(
         `${this.dataService.rootEntrypoints.people}${this.peopleId}`
       )
-      .subscribe((person) => (this.person = person));
+      .subscribe((person) => {
+        this.person = person;
+        this.getHomeWorldDetail();
+        this.getSpecieDetail();
+      });
+  }
+
+  private getHomeWorldDetail(): void {
+    this.dataService
+      .getItem<IPlanet>(this.person.homeworld)
+      .subscribe((planet) => (this.planet = planet));
+  }
+
+  private getSpecieDetail(): void {
+    this.dataService
+      .getItem<ISpecie>(this.person.species[0])
+      .subscribe((specie) => (this.specie = specie));
   }
 }
