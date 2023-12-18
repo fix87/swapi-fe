@@ -2,7 +2,7 @@
 
 ### [demo](https://fix87.github.io/swapi-fe)
 
-Mocked data is retrieved from [SWAPI - The Star Wars API](https://swapi.dev/)
+Mocked data are retrieved from [SWAPI - The Star Wars API](https://swapi.dev/)
 
 UI is based on [Bootstrap](https://getbootstrap.com/) and [ngBootstrap](https://ng-bootstrap.github.io/)
 
