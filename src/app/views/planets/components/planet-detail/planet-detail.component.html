@@ -44,6 +44,38 @@
             </div>
           </ng-template>
         </li>
+        <li [ngbNavItem]="2">
+          <button ngbNavLink class="detail-nav-link">Films</button>
+          <ng-template ngbNavContent>
+            <div class="row">
+              <div class="col-4 m-auto text-center">
+                <p>List of films that this planet has appeared in</p>
+                <div class="list-group">
+                  <app-film-preview
+                    *ngFor="let film of planet.films"
+                    [filmUrl]="film"
+                  />
+                </div>
+              </div>
+            </div>
+          </ng-template>
+        </li>
+        <li [ngbNavItem]="3">
+          <button ngbNavLink class="detail-nav-link">Residents</button>
+          <ng-template ngbNavContent>
+            <div class="row">
+              <div class="col-4 m-auto text-center">
+                <p>List of residents that live on this planet</p>
+                <div class="list-group">
+                  <app-people-preview
+                    *ngFor="let resident of planet.residents"
+                    [personUrl]="resident"
+                  />
+                </div>
+              </div>
+            </div>
+          </ng-template>
+        </li>
       </ul>
 
       <div [ngbNavOutlet]="nav" class="mt-4"></div>

@@ -34,6 +34,86 @@
             </div>
           </ng-template>
         </li>
+        <li [ngbNavItem]="2">
+          <button ngbNavLink class="detail-nav-link">Characters</button>
+          <ng-template ngbNavContent>
+            <div class="row">
+              <div class="col-4 m-auto text-center">
+                <p>List of characters that are in this film</p>
+                <div class="list-group">
+                  <app-people-preview
+                    *ngFor="let character of film.characters"
+                    [personUrl]="character"
+                  />
+                </div>
+              </div>
+            </div>
+          </ng-template>
+        </li>
+        <li [ngbNavItem]="3">
+          <button ngbNavLink class="detail-nav-link">Planets</button>
+          <ng-template ngbNavContent>
+            <div class="row">
+              <div class="col-4 m-auto text-center">
+                <p>List of planets that are in this film</p>
+                <div class="list-group">
+                  <app-planet-preview
+                    *ngFor="let planet of film.planets"
+                    [planetUrl]="planet"
+                  />
+                </div>
+              </div>
+            </div>
+          </ng-template>
+        </li>
+        <li [ngbNavItem]="4">
+          <button ngbNavLink class="detail-nav-link">Species</button>
+          <ng-template ngbNavContent>
+            <div class="row">
+              <div class="col-4 m-auto text-center">
+                <p>List of species that are in this film</p>
+                <div class="list-group">
+                  <app-specie-preview
+                    *ngFor="let specie of film.species"
+                    [specieUrl]="specie"
+                  />
+                </div>
+              </div>
+            </div>
+          </ng-template>
+        </li>
+        <li [ngbNavItem]="5">
+          <button ngbNavLink class="detail-nav-link">Starships</button>
+          <ng-template ngbNavContent>
+            <div class="row">
+              <div class="col-4 m-auto text-center">
+                <p>List of starships that are in this film</p>
+                <div class="list-group">
+                  <app-starship-preview
+                    *ngFor="let starship of film.starships"
+                    [starshipUrl]="starship"
+                  />
+                </div>
+              </div>
+            </div>
+          </ng-template>
+        </li>
+        <li [ngbNavItem]="6">
+          <button ngbNavLink class="detail-nav-link">Vehicles</button>
+          <ng-template ngbNavContent>
+            <div class="row">
+              <div class="col-4 m-auto text-center">
+                <p>List of vehicles that are in this film</p>
+                <div class="list-group">
+                  <app-vehicle-preview
+                    *ngFor="let vehicle of film.vehicles"
+                    [vehicleUrl]="vehicle"
+                  />
+                </div>
+              </div>
+            </div>
+          </ng-template>
+        </li>
       </ul>
 
       <div [ngbNavOutlet]="nav" class="mt-4"></div>

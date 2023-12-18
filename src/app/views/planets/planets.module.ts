@@ -6,6 +6,7 @@ import { CommonModule } from '@angular/common';
 import { PlanetsRoutingModule } from './planets-routing.module';
 import { MainLoaderModule } from '../../shared/main-loader/main-loader.module';
 import { BootstrapModule } from '../../shared/bootstrap';
+import { EntitiesPreviewModule } from '../../shared/entities-preview/entities-preview.module';
 
 // Components
 import { PlanetsComponent } from './planets.component';
@@ -19,6 +20,7 @@ import { PlanetsListComponent } from './components/planets-list/planets-list.com
     PlanetsRoutingModule,
     MainLoaderModule,
     BootstrapModule,
+    EntitiesPreviewModule,
   ],
 })
 export class PlanetsModule {}

@@ -37,6 +37,59 @@
               <dd class="col-sm-8">
                 {{ specie.language }}
               </dd>
+              <dt class="col-sm-4">Homeworld</dt>
+              <dd class="col-sm-8">
+                <ng-container *ngIf="!loadingPlanet; else placeholderTemplate">
+                  <button
+                    (click)="goToPlanetDetail(planet.url)"
+                    *ngIf="planet; else naTemplate"
+                    type="button"
+                    class="btn btn-link p-0 border-0"
+                  >
+                    {{ planet.name }}
+                  </button>
+                </ng-container>
+              </dd>
+              <ng-template #naTemplate>N/A</ng-template>
+              <ng-template #placeholderTemplate>
+                <div class="placeholder-glow">
+                  <span class="placeholder w-25"></span>
+                </div>
+              </ng-template>
+            </div>
+          </ng-template>
+        </li>
+        <li [ngbNavItem]="2">
+          <button ngbNavLink class="detail-nav-link">Films</button>
+          <ng-template ngbNavContent>
+            <div class="row">
+              <div class="col-4 m-auto text-center">
+                <p>
+                  List of films that this specie this species has appeared in
+                </p>
+                <div class="list-group">
+                  <app-film-preview
+                    *ngFor="let film of specie.films"
+                    [filmUrl]="film"
+                  />
+                </div>
+              </div>
+            </div>
+          </ng-template>
+        </li>
+        <li [ngbNavItem]="3">
+          <button ngbNavLink class="detail-nav-link">People</button>
+          <ng-template ngbNavContent>
+            <div class="row">
+              <div class="col-4 m-auto text-center">
+                <p>List of films that that are a part of this species</p>
+                <div class="list-group">
+                  <app-people-preview
+                    *ngFor="let people of specie.people"
+                    [personUrl]="people"
+                  />
+                </div>
+              </div>
             </div>
           </ng-template>
         </li>

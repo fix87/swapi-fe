@@ -1,10 +1,11 @@
 // Core
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 // Services
 import { DataService } from '../../../../services/data.service';
-import { ISpecie } from '../../../../models';
+import { IPlanet, ISpecie } from '../../../../models';
+import { finalize } from 'rxjs';
 
 @Component({
   selector: 'app-specie-detail',
@@ -14,10 +15,13 @@ import { ISpecie } from '../../../../models';
 export class SpecieDetailComponent implements OnInit {
   private specieId!: string;
   public specie!: ISpecie;
+  public planet!: IPlanet;
+  public loadingPlanet = false;
 
   public constructor(
     private activatedRoute: ActivatedRoute,
-    private dataService: DataService
+    private dataService: DataService,
+    private router: Router
   ) {
     this.specieId = this.activatedRoute.snapshot.params['id'];
   }
@@ -31,6 +35,34 @@ export class SpecieDetailComponent implements OnInit {
       .getItem<ISpecie>(
         `${this.dataService.rootEntrypoints.species}${this.specieId}`
       )
-      .subscribe((specie) => (this.specie = specie));
+      .subscribe((specie) => {
+        this.specie = specie;
+        if (this.specie.homeworld) {
+          this.getHomeWorldDetail();
+        }
+      });
+  }
+
+  private getHomeWorldDetail(): void {
+    this.loadingPlanet = true;
+    this.dataService
+      .getItem<IPlanet>(this.specie.homeworld)
+      .pipe(finalize(() => (this.loadingPlanet = false)))
+      .subscribe((planet) => (this.planet = planet));
+  }
+
+  private getId(url: string): string {
+    const splittedString = url.split('/');
+    const id = splittedString.at(splittedString.length - 2);
+    return id || '';
+  }
+
+  public goToPlanetDetail(planetUrl: string): void {
+    const id = this.getId(planetUrl);
+    if (id) {
+      this.router.navigate(['/', 'planets', id]);
+    } else {
+      console.log('No detail for this planet');
+    }
   }
 }

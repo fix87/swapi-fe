@@ -41,18 +41,31 @@
               </dd>
               <dt class="col-sm-4">Specie</dt>
               <dd class="col-sm-8">
-                <ng-container *ngIf="specie; else placeholderTemplate">
-                  <!-- TODO: add button for navigation -->
-                  {{ specie.name }}
+                <ng-container *ngIf="!loadingSpecie; else placeholderTemplate">
+                  <button
+                    (click)="goToSpecieDetail(specie.url)"
+                    *ngIf="specie; else naTemplate"
+                    type="button"
+                    class="btn btn-link p-0 border-0"
+                  >
+                    {{ planet.name }}
+                  </button>
                 </ng-container>
               </dd>
               <dt class="col-sm-4">Homeworld</dt>
               <dd class="col-sm-8">
-                <ng-container *ngIf="planet; else placeholderTemplate">
-                  <!-- TODO: add button  for navigation-->
-                  {{ planet.name }}
+                <ng-container *ngIf="!loadingPlanet; else placeholderTemplate">
+                  <button
+                    (click)="goToPlanetDetail(planet.url)"
+                    *ngIf="planet; else naTemplate"
+                    type="button"
+                    class="btn btn-link p-0 border-0"
+                  >
+                    {{ planet.name }}
+                  </button>
                 </ng-container>
               </dd>
+              <ng-template #naTemplate>N/A</ng-template>
               <ng-template #placeholderTemplate>
                 <div class="placeholder-glow">
                   <span class="placeholder w-25"></span>
@@ -71,6 +84,22 @@
                   <app-film-preview
                     *ngFor="let film of person.films"
                     [filmUrl]="film"
+                  />
+                </div>
+              </div>
+            </div>
+          </ng-template>
+        </li>
+        <li [ngbNavItem]="3">
+          <button ngbNavLink class="detail-nav-link">Starships</button>
+          <ng-template ngbNavContent>
+            <div class="row">
+              <div class="col-4 m-auto text-center">
+                <p>List of starships that this person has piloted</p>
+                <div class="list-group">
+                  <app-starship-preview
+                    *ngFor="let starhip of person.starships"
+                    [starshipUrl]="starhip"
                   />
                 </div>
               </div>

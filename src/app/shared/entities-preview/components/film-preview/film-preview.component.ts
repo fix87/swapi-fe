@@ -1,12 +1,12 @@
 // Core
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 // Services
 import { DataService } from '../../../../services/data.service';
 
 // Models
 import { IFilm } from '../../../../models';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-film-preview',

@@ -5,6 +5,7 @@ import { CommonModule } from '@angular/common';
 // Modules
 import { StarshipsRoutingModule } from './starships-routing.module';
 import { MainLoaderModule } from '../../shared/main-loader/main-loader.module';
+import { EntitiesPreviewModule } from '../../shared/entities-preview/entities-preview.module';
 
 // Components
 import { StarshipsComponent } from './starships.component';
@@ -23,6 +24,7 @@ import { BootstrapModule } from '../../shared/bootstrap';
     StarshipsRoutingModule,
     MainLoaderModule,
     BootstrapModule,
+    EntitiesPreviewModule,
   ],
 })
 export class StarshipsModule {}

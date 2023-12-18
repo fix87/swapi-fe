@@ -6,6 +6,7 @@ import { CommonModule } from '@angular/common';
 import { FilmsRoutingModule } from './films-routing.module';
 import { MainLoaderModule } from '../../shared/main-loader/main-loader.module';
 import { BootstrapModule } from '../../shared/bootstrap';
+import { EntitiesPreviewModule } from '../../shared/entities-preview/entities-preview.module';
 
 // Components
 import { FilmsComponent } from './films.component';
@@ -19,6 +20,7 @@ import { FilmDetailComponent } from './components/film-detail/film-detail.compon
     FilmsRoutingModule,
     MainLoaderModule,
     BootstrapModule,
+    EntitiesPreviewModule,
   ],
 })
 export class FilmsModule {}

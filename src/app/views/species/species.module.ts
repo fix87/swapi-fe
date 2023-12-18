@@ -6,6 +6,7 @@ import { CommonModule } from '@angular/common';
 import { SpeciesRoutingModule } from './species-routing.module';
 import { MainLoaderModule } from '../../shared/main-loader/main-loader.module';
 import { BootstrapModule } from '../../shared/bootstrap';
+import { EntitiesPreviewModule } from '../../shared/entities-preview/entities-preview.module';
 
 // Components
 import { SpeciesComponent } from './species.component';
@@ -19,6 +20,7 @@ import { SpecieDetailComponent } from './components/specie-detail/specie-detail.
     SpeciesRoutingModule,
     MainLoaderModule,
     BootstrapModule,
+    EntitiesPreviewModule,
   ],
 })
 export class SpeciesModule {}

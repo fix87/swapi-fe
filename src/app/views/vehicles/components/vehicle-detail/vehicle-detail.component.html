@@ -46,6 +46,38 @@
             </div>
           </ng-template>
         </li>
+        <li [ngbNavItem]="2">
+          <button ngbNavLink class="detail-nav-link">Films</button>
+          <ng-template ngbNavContent>
+            <div class="row">
+              <div class="col-4 m-auto text-center">
+                <p>List of films that this vehicle has appeared in</p>
+                <div class="list-group">
+                  <app-film-preview
+                    *ngFor="let film of vehicle.films"
+                    [filmUrl]="film"
+                  />
+                </div>
+              </div>
+            </div>
+          </ng-template>
+        </li>
+        <li [ngbNavItem]="3">
+          <button ngbNavLink class="detail-nav-link">Pilots</button>
+          <ng-template ngbNavContent>
+            <div class="row">
+              <div class="col-4 m-auto text-center">
+                <p>List of people that this vehicle has been piloted by</p>
+                <div class="list-group">
+                  <app-people-preview
+                    *ngFor="let pilot of vehicle.pilots"
+                    [personUrl]="pilot"
+                  />
+                </div>
+              </div>
+            </div>
+          </ng-template>
+        </li>
       </ul>
 
       <div [ngbNavOutlet]="nav" class="mt-4"></div>

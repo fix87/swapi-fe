@@ -6,6 +6,7 @@ import { CommonModule } from '@angular/common';
 import { VehiclesRoutingModule } from './vehicles-routing.module';
 import { VehiclesComponent } from './vehicles.component';
 import { BootstrapModule } from '../../shared/bootstrap';
+import { EntitiesPreviewModule } from '../../shared/entities-preview/entities-preview.module';
 
 // Components
 import { MainLoaderModule } from '../../shared/main-loader/main-loader.module';
@@ -23,6 +24,7 @@ import { VehicleDetailComponent } from './components/vehicle-detail/vehicle-deta
     VehiclesRoutingModule,
     MainLoaderModule,
     BootstrapModule,
+    EntitiesPreviewModule,
   ],
 })
 export class VehiclesModule {}
